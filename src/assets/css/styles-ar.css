@@ -1,0 +1,11 @@
+label {
+    float: right;
+  }
+
+.form-group { background-color: aqua;
+direction: rtl;}
+
+text
+{
+  direction: rtl;
+}
