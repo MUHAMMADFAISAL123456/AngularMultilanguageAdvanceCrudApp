@@ -1,24 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent {
   loadArabic = false;
   dynamicCSSUrlar: string;
   dynamicCSSUrleng: string;
+  //public translate2: TranslateService;
 
   constructor(
     public translate: TranslateService, public sanitizer: DomSanitizer
   ) {
-    translate.addLangs(['en', 'nl', 'ar']);
+    translate.addLangs(['en', 'nl', 'ar']);    
     translate.setDefaultLang('en');
+    //this.translate2 = translate;
+
   }
 
   ngOnInit(){
@@ -48,5 +50,4 @@ export class AppComponent {
 
     }
   }
-
 }
