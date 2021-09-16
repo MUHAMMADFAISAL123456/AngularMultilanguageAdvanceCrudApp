@@ -12,6 +12,11 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ProductaddComponent } from './productadd/productadd.component';
 //import { AlertModule } from 'ngx-bootstrap';
+import { AlertsModule } from 'angular-alert-module';
+import { ProductService } from './product.service';
+import { ErrorInterceptorProvider } from './HttpInterceptor';
+
+
 
 const appRoutes: Routes = [
   { path: '', component: MainpageComponent },
@@ -35,7 +40,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    //AlertModule.forRoot(),
+    AlertsModule.forRoot(),    
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     TranslateModule.forRoot({
       loader: {
@@ -45,7 +50,7 @@ const appRoutes: Routes = [
       }
     })
   ],
-  providers: [],
+  providers: [ProductService, ErrorInterceptorProvider],
   bootstrap: [AppComponent]
 })
 
